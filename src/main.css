@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+*{padding: 0;margin: 0;list-style: none;text-decoration: none;color: #fff;font-family: 'Lora', serif;}
+
+
+body {
+	height: 100vh;
+	width: 100%;
+	background-image: url('https://images.wallpaperscraft.ru/image/nebo_oblaka_goluboj_114581_3840x2400.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.main-container {
+	max-width: 1480px;
+	margin: 0 auto;
+}
+
+
+.main-header {
+	padding-top: 50px; 
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	min-height: 70px;
+}
+
+.header-form,
+.main-container,
+.main-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.p-4 {
+	padding: 1rem;
+}
+
+.search-places {
+	max-width: 400px;
+	min-width: 400px;
+	width: 100%;
+	display: inline-block;
+	position: relative;
+}
+
+.form-control {
+	width: 100%;
+	padding-right: 70px;
+	padding-left: 15px;
+	height: 40px;
+	border-radius: 3px;
+	outline: none;
+	box-sizing: border-box;
+	border: none;
+	font: inherit;
+	color: #000000;
+	font-size: 18px;
+}
+
+.search-places button{
+	transition: opacity 0.7s;
+	width: 35px;
+	background: none;
+	border: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 5px;
+	opacity: 70%;
+}
+
+.search-places button.delete {
+	right: 40px;
+	width: 30px;
+	padding-top: 3px;
+}
+
+.search-places button:hover {
+	cursor: pointer;
+}
+.search-places button:active,
+.search-places button:hover  {
+	opacity: 100%;
+}
+
+
+@media(max-width: 420px) {
+	.search-places {
+		min-width: 100%;
+		padding: 0 10px;
+	}
+	.main-container {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.header-form {
+		width: 100%;
+	}
+	.search-places button{
+		right: 10px;
+	}
+	.form-alert {
+		padding-left: 15px !important;
+	}
+}
+
+.form-alert {
+	color: #e24d6b;
+	font-size: 16px;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.main-body {
+
+	padding: 20px 0;
+	display: flex;
+}
+
+.weather-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+
+
+.weather-item {
+	border-radius: 7px;
+	overflow: hidden;
+	max-width: 450px;
+	width: 100%;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.weather-item-header {
+	display: flex;
+	background-color: #1a202c;
+	padding: 2rem 1.5rem;
+}
+
+.weather-header-temp {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 140px;
+}
+
+.weather-current-temp {
+	font-size: 2.2rem;
+	margin-bottom: 10px;
+}
+
+.weather-current {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.weather-current-img {
+	min-width: 90px;
+	min-height: 90px;
+}
+.weather-current-img img {
+	width: 100%;
+	height: auto;
+}
+
+.weather-current-weather-content {
+	width: 100%;
+	padding-left: 15px;
+}
+
+.weather-current-state {
+	font-size: 19px;
+	margin-top: 5px;
+}
+
+.flex-row {
+	width: 100%;
+	display: flex;
+	max-height: 60px;
+	min-height: 60px;
+}
+.weather-item-footer {
+	background-color: #2d3748;
+	display: flex;
+	flex-direction: column;
+}
+.weather-footer-details,
+.weather-footer-deletes {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.weather-footer-details:hover,
+.weather-footer-deletes:hover,
+.update-weather:hover {
+	background-color: #212936;
+	cursor: pointer;
+}
+
+.weather-current-weather-city {
+	padding-top: 5px;
+}
+
+.update-weather {
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media(max-width: 1265px) {
+	.weather-item {
+		max-width: 350px;
+		margin-right: 0;
+	}
+}
+
+@media(max-width: 730px) {
+	.weather-item {
+		max-width: 500px;
+		margin-right: 0;
+	}
+}
+
+@media(max-width: 425px) {
+	.main-body {
+		width: 100%;
+		padding: 0px;
+	}
+	.weather-item {
+		margin: 10px 0 10px 15px !important;
+	}
+	.weather-list {
+		width: 100%;
+	}
+}
+
+.pages {
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+}
+
+.pagination {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+	margin-top: 10px;
+}
+.pagination li {
+	display: inline;
+	text-align: center;
+}
+.pagination a {
+	transition-duration: 0.3s;
+	float: left;
+	display: block;
+	font-size: 14px;
+	text-decoration: none;
+	padding: 5px 12px;
+	color: #fff;
+	margin-left: -1px;
+	border: 1px solid transparent;
+	line-height: 1.5;
+}
+.pagination a.active {
+	cursor: default;
+}
+.pagination a:active {
+	outline: none;
+}
+
+.modal-1 li:first-child a {
+	-moz-border-radius: 6px 0 0 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px 0 0 6px;
+}
+.modal-1 li:last-child a {
+	-moz-border-radius: 0 6px 6px 0;
+	-webkit-border-radius: 0;
+	border-radius: 0 6px 6px 0;
+}
+.modal-1 a {
+	border-color: #ddd;
+	color: #4285F4;
+	background: #fff;
+}
+.modal-1 a:hover {
+	background: #4285F4;
+	border-color: #4285F4;
+	color: #fff;
+}
+.modal-1 a.active, .modal-1 a:active {
+	border-color: #4285F4;
+	background: #4285F4;
+	color: #fff;
+}
+
+.weather-box {
+	min-height: 302px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.weather-group-message {
+	font-size: 22px;
+}
+
+
+.weather-temp-fells-like {
+	text-align: center;
+	line-height: 22px;
+}
+
+.main-weather {
+	padding-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.today-weather {
+	min-height: 300px;
+	height: 100%;
+	width: 1050px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.today-weather-header {
+	height: 150px;
+	padding: 10px;
+}
+
+.today-weather-img {
+	max-width: 100px;
+	max-height: 100px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	width: 100%;
+	height: 100%;
+}
+
+.today-weather-img img {
+	margin-top: 10px;
+	min-width: 90px;
+	height: auto;
+}
+
+.today-weather-header-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.today-weather-temp {
+	min-width: 50px;
+	font-size: 90px;
+	padding-left: 15px;
+}
+
+.today-weather-state {
+	font-size: 35px;
+}
+.today-weather-info {
+	padding-right: 20px;
+}
+.today-maks-temp {
+	font-size: 20px;
+}
+
+.flex-row-custom {
+	display: flex;
+}
+
+.today-weather-city {
+	font-size: 22px;
+	padding: 0 10px;
+}
+
+.today-weather-links {
+	margin-bottom: 25px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.today-weather-back {
+	display: flex;
+	align-items: center;
+}
+
+.today-weather-back:hover {
+	cursor: pointer;
+	opacity: 80%;
+}
+
+.today-weather-header-bottom {
+	width: 100%;
+	height: 50px;
+	padding: 0 15px;
+}
+
+.today-weather-parametrs-group {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.parametrs-group-svg {
+	height: 28px;
+	width: 28px;
+}
+
+.parametrs-group-svg > svg{
+	fill: #fff !important;
+}
+
+@media(max-width: 1580px) {
+	body {
+	background-image: url('https://images.wallpaperscraft.ru/image/nebo_oblaka_goluboj_114581_3840x2400.jpg');
+	background-size: auto;
+	background-repeat: no-repeat;
+	}
+}
+
+.parametrs-group-prescrition {
+	opacity: 80%;
+	font-size: 13px;
+}
+
+.parametrs-group-item {
+	align-items: center;
+	max-width: 150px;
+	width: 100%;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.parametrs-group-temp {
+	font-size: 16px;
+}
+.parametrs-group-column {
+	padding-left: 5px;
+}
+
+@media(max-width: 1060px) {
+	.today-weather {
+		width: 100%;
+	}
+	.today-weather-img {
+		max-width: 80px;
+		max-height: 80px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.today-weather-img img {
+		min-width: 80px;
+		height: 80px;
+	}
+	.today-weather-temp {
+		font-size: 67px;
+	}
+	.today-weather-state {
+		font-size: 30px;
+	}
+	.today-maks-temp {
+		font-size: 17px;
+	}
+}
+
+
+@media(max-width: 700px) {
+	.today-weather-img {
+		max-width: 60px;
+		max-height: 60px;
+		width: 100%;
+		height: 100%;
+	}
+	.today-weather-img img {
+		min-width: 60px;
+		height: 60px;
+	}
+	.today-weather-temp {
+		font-size: 57px;
+	}
+	.today-weather-state {
+		font-size: 24px;
+	}
+	.today-maks-temp {
+		font-size: 14px;
+	}
+		.today-weather-parametrs-group {
+		justify-content: space-between;
+		margin-top: 50px;
+	}
+}
+
+
+@media(max-width: 618px) {
+	.today-weather-links {
+		margin-bottom: 30px;
+	}
+	.today-weather-img {
+		max-width: 50px;
+		max-height: 50px;
+		width: 100%;
+		height: 100%;
+	}
+	.today-weather-img img {
+		min-width: 50px;
+		height: 50px;
+	}
+	.today-weather-temp {
+		font-size: 35px;
+	}
+	.today-weather-state {
+		font-size: 20px;
+	}
+	.today-maks-temp {
+		font-size: 14px;
+	}
+	.today-weather-info {
+		padding: 0;
+	}
+	.parametrs-group-item {
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	.today-weather {
+		height: 400px;
+		margin-bottom: 0;
+	}
+}
+
+@media(max-width: 400px) {
+	.today-weather-state {
+		font-size: 16px;
+	}
+		.today-maks-temp {
+		font-size: 12px;
+	}
+	.today-weather-header {
+		padding: 0;
+	}
+	.today-weather-back {
+		padding-right: 10px;
+	}
+}
+
+.widjet-container {
+	display: flex;
+	flex-direction: column;
+	overflow-x: auto;
+	max-width: 1050px;
+	width: 100%;
+	margin: 0 auto;
+	min-height: 300px;
+	margin-bottom: 100px;
+}
+.widjet-time,
+.widjet-weather-icon,
+.widjet-temp,
+.widjet-windy,
+.widjet-precipitation{
+	padding: 0 10px;
+}
+.widjet-time-item,
+.widjet-temp-item,
+.widjet-windy-item ,
+.widjet-precipitation-item{
+	min-width: 100px;
+	text-align: center;
+	font-size: 25px;
+	height: 35px;
+}
+.widjet-weather-icon-item,
+.widjet-temp-item,
+.widjet-windy-item,
+.widjet-precipitation-item{
+	width: 100px;
+	max-height: 75px;
+	display: flex;
+	justify-content: center;
+}
+.widjet-weather-icon-item img {
+	max-width: 75px;
+	height: 100%;
+	width: 100%;
+}
+
+.widjet-temp {
+	height: 35px;
+	align-items: flex-end;
+}
+
+.widjet-temp-item {
+	height: 30px;
+}
+
+.widjet-content {
+	margin: 0 auto;
+}
+
+.widjet-content {
+	background: #174791;
+	border-radius: 5px;
+   padding: 30px 0;
+}
+
+.widjet-time-item,
+.widjet-temp-item,
+.widjet-weather-icon-item,
+.widjet-windy-item,
+.widjet-precipitation-item {
+	margin-right: 10px;
+}
+
+.widjet-windy-box,
+.widjet-precipitation-box {
+ position: relative;
+ margin-top: 10px;
+}
+
+.widjet-windy-title,
+.widjet-precipitation-title {
+	position: sticky;
+	top: 10px;
+	left: 50px;
+}
+.widjet-windy,
+.widjet-precipitation {
+	margin-top: 10px;
+}
