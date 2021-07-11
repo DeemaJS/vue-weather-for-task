@@ -6,7 +6,7 @@
     <section class="main-body">
       <div class="weather-box">
         <ul class="weather-list" v-if="hasCities">
-           <WeatherCard v-for="city in citiesWeatherGroup" :key="city" :weatherCity="city"/>
+           <WeatherCard v-for="city , idx in citiesWeatherGroup" :key="city" :weatherCity="city" :cityNumber="idx"/>
         </ul>
 
         <p class="weather-group-message" v-else>

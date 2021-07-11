@@ -194,9 +194,6 @@ body {
 .weather-footer-details,
 .weather-footer-deletes {
 	width: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .weather-footer-details:hover,
@@ -356,6 +353,13 @@ body {
 	margin-top: 10px;
 	min-width: 90px;
 	height: auto;
+}
+.weather-footer-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .today-weather-header-top {

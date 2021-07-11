@@ -23,6 +23,9 @@ export default {
         },
         clearServerError(state) {
             state.serverError = false
+        },
+        deleteWeatherCity(state , cityNumber) {
+            state.citiesWeatherGroup.splice(cityNumber , 1)
         }
     },
     actions: {

@@ -29,7 +29,7 @@
           </router-link>
         </div>
         <div class="weather-footer-deletes">
-          <a href="#" class="weather-footer-link"> Удалить </a>
+          <a  class="weather-footer-link" @click.prevent="deleteWeatherCard"> Удалить </a>
         </div>
       </div>
       <div class="update-weather">
@@ -44,6 +44,7 @@ import converterKelvin from "@/utils/converter.js";
 export default {
   props: {
     weatherCity: String,
+    cityNumber: Number
   },
   mounted() {
     this.setWeatherValue();
@@ -71,11 +72,13 @@ export default {
       this.feelsLike = main.feels_like;
       this.weatherState = weather[0].description;
       this.weatherIcon = weather[0].icon;
-      console.log(main);
     },
     updateWeather() {
         this.setWeatherValue()
     },
+    deleteWeatherCard() {
+        this.$store.commit('location/deleteWeatherCity' , this.cityNumber)
+    }
   },
 };
 </script>
