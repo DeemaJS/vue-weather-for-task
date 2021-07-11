@@ -2,13 +2,13 @@ export default {
     namespaced: true,
     state() {
         return {
-            citiesGroup: [],
+            citiesWeatherGroup: [],
             serverError: false
         }
     },
     getters: {
         getCitiesGroup(state) {
-            return state.citiesGroup
+            return state.citiesWeatherGroup
         },
         getServerError(state) {
             return state.serverError
@@ -16,7 +16,7 @@ export default {
     },
     mutations: {
         addNewCity(state, city) {
-            state.citiesGroup.push(city)
+            state.citiesWeatherGroup.push(city)
         },
         setServerError(state, err) {
             state.serverError = err
@@ -36,9 +36,9 @@ export default {
                 };
                 const baseUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${config.city}&limit=${config.limit}&lang=${config.lang}&appid=${config.key}`;
                 const data = await fetch(baseUrl).then((quetion) => quetion.json());
-                const dataIsValid = await data.length !== 0
+                const minimalAnswerLength = 1
+                const dataIsValid = await data.length >= minimalAnswerLength
                 if (dataIsValid) {
-                    console.log(data)
                     commit('addNewCity', newCity)
                     commit('setServerError', false)
                     return;

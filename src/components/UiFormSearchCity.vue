@@ -69,7 +69,7 @@ export default {
       if (this.serverError.length > 0) {
         setTimeout(() => {
           this.$store.commit("location/clearServerError");
-        }, 2000);
+        }, 3000);
       }
     },
   },

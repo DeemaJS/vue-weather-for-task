@@ -1,7 +1,12 @@
 export const routes = [
     {
         path: '/',
-        name: 'index',
-        component: () => import('@/views/Home.vue')
+        name: 'MainWeather',
+        component: () => import('@/views/MainWeather.vue')
+    },
+    {
+        path: '/detail-weather',
+        name: 'DetailedInformationAboutWeather',
+        component: () => import('@/views/DetailedWeather.vue')
     }
 ]

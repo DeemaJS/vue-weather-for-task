@@ -121,7 +121,7 @@ body {
 .weather-list {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 
@@ -130,6 +130,7 @@ body {
 	border-radius: 7px;
 	overflow: hidden;
 	max-width: 450px;
+	min-width: 450px;
 	width: 100%;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -227,6 +228,7 @@ body {
 	.weather-item {
 		max-width: 500px;
 		margin-right: 0;
+		min-width: 0;
 	}
 }
 
