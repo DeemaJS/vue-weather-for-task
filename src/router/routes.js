@@ -7,6 +7,14 @@ export const routes = [
     {
         path: '/detail-weather',
         name: 'DetailedInformationAboutWeather',
-        component: () => import('@/views/DetailedWeather.vue')
-    }
+        component: () => import('@/views/DetailedWeather.vue'),
+        props: route => ({ 
+            city:  route.query.city 
+        })
+    } , 
+    {
+        path: '/:notFound(.*)' , 
+        name: 'NotFound' ,
+        redirect: '/'
+    },
 ]

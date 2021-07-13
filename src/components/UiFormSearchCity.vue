@@ -18,7 +18,7 @@
         </button>
       </div>
 
-      <button class="get-location" v-else @click.left="getUserLocation">
+      <button class="get-location" type="button" @click="getUserLocation" v-else>
         <img
           src="@/assets/svg-icons/ticker-fill.svg"
           alt="get-location-button"
@@ -50,7 +50,19 @@ export default {
       this.searchСity = "";
     },
     getUserLocation() {
-      console.log("getting...");
+      const error = (err) => {
+        this.$store.commit(
+          "location/setServerError",
+          "Вы запретили доступ к получению геолокации"
+        );
+        console.log(err);
+      };
+      const position = (currentPosition) => {
+        console.log(currentPosition);
+      };
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position, error);
+      }
     },
   },
   computed: {
@@ -62,7 +74,7 @@ export default {
     },
     isInputting() {
       return this.searchСity.length >= 1;
-    }
+    },
   },
   watch: {
     serverError() {

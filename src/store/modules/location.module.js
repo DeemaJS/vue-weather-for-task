@@ -40,7 +40,7 @@ export default {
                 const baseUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${config.city}&limit=${config.limit}&lang=${config.lang}&appid=${config.key}`;
                 const data = await fetch(baseUrl).then((quetion) => quetion.json());
                 const minimalAnswerLength = 1
-                const dataIsValid = await data.length >= minimalAnswerLength
+                const dataIsValid =  data.length >= minimalAnswerLength
                 if (dataIsValid) {
                     commit('addNewCity', newCity)
                     commit('setServerError', false)

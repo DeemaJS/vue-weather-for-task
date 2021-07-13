@@ -24,27 +24,32 @@
     <div class="weather-item-footer">
       <div class="flex-row">
         <div class="weather-footer-details">
-          <router-link to="/detail-weather" class="weather-footer-link">
+          <router-link
+            :to="`/detail-weather?city=${weatherCity}`"
+            class="weather-footer-link"
+          >
             Подробнее
           </router-link>
         </div>
         <div class="weather-footer-deletes">
-          <a  class="weather-footer-link" @click.prevent="deleteWeatherCard"> Удалить </a>
+          <a class="weather-footer-link" @click.prevent="deleteWeatherCard">
+            Удалить
+          </a>
         </div>
       </div>
       <div class="update-weather">
-        <a  class="btn-update" @click.prevent="updateWeather"> Обновить </a>
+        <a class="btn-update" @click.prevent="updateWeather"> Обновить </a>
       </div>
     </div>
   </li>
 </template>
 
 <script>
-import converterKelvin from "@/utils/converter.js";
+import  { converterKelvin }  from "@/utils/converter.js";
 export default {
   props: {
     weatherCity: String,
-    cityNumber: Number
+    cityNumber: Number,
   },
   mounted() {
     this.setWeatherValue();
@@ -74,11 +79,11 @@ export default {
       this.weatherIcon = weather[0].icon;
     },
     updateWeather() {
-        this.setWeatherValue()
+      this.setWeatherValue();
     },
     deleteWeatherCard() {
-        this.$store.commit('location/deleteWeatherCity' , this.cityNumber)
-    }
+      this.$store.commit("location/deleteWeatherCity", this.cityNumber);
+    },
   },
 };
 </script>

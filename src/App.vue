@@ -1,12 +1,12 @@
 <template>
-    <router-view></router-view>
+  <main class="main-container p-4">
+       <router-view></router-view>
+  </main>
 </template>
 
 <script>
-    export default {
-    }
+export default {};
 </script>
 
 <style>
-
 </style>
