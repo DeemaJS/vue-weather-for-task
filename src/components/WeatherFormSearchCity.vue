@@ -18,17 +18,18 @@
         </button>
       </div>
 
-      <button class="get-location" type="button" @click="getUserLocation" v-else>
+      <button
+        class="get-location"
+        type="button"
+        @click="getUserLocation"
+        v-else
+      >
         <img
           src="@/assets/svg-icons/ticker-fill.svg"
           alt="get-location-button"
         />
       </button>
     </span>
-
-    <small class="form-alert" v-if="serverError">
-      {{ serverError }}
-    </small>
   </form>
 </template>
 
@@ -42,7 +43,9 @@ export default {
   methods: {
     addCityCard() {
       if (this.validatingInput) {
-        this.$store.dispatch("location/getNewCity", this.searchСity);
+        this.$store.dispatch("location/addNewCity", {
+          selectedCity: this.searchСity,
+        });
         this.searchСity = "";
       }
     },
@@ -51,14 +54,14 @@ export default {
     },
     getUserLocation() {
       const error = (err) => {
-        this.$store.commit(
-          "location/setServerError",
-          "Вы запретили доступ к получению геолокации"
-        );
         console.log(err);
       };
       const position = (currentPosition) => {
-        console.log(currentPosition);
+        const coords = currentPosition.coords;
+        this.$store.dispatch("location/addNewCity", {
+          lat: coords.latitude,
+          lon: coords.longitude
+        });
       };
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position, error);
@@ -67,22 +70,12 @@ export default {
   },
   computed: {
     validatingInput() {
-      return this.searchСity.length >= 3;
-    },
-    serverError() {
-      return this.$store.getters["location/getServerError"];
+      return (
+        this.searchСity.length >= 3 && !Number(this.searchСity.charAt(0))
+      );
     },
     isInputting() {
       return this.searchСity.length >= 1;
-    },
-  },
-  watch: {
-    serverError() {
-      if (this.serverError.length > 0) {
-        setTimeout(() => {
-          this.$store.commit("location/clearServerError");
-        }, 3000);
-      }
     },
   },
 };

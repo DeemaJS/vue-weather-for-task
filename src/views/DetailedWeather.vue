@@ -143,10 +143,10 @@
     <section class="widjet-container">
       <div class="column widjet-content">
         <ul class="widjet-time flex-row-custom">
-          <weather-time-card v-for="el in currentDayWeather" :key="el" :time="el.dt"></weather-time-card>
+          <WeatherTimeCard v-for="el in currentDayWeather" :key="el" :time="el.dt"/>
         </ul>
         <ul class="widjet-weather-icon flex-row-custom">
-          <weather-icon-card v-for="el in currentDayWeather" :key="el" :icon="el.weather[0].icon"></weather-icon-card>
+          <WeatherIconCard v-for="el in currentDayWeather" :key="el" :icon="el.weather[0].icon"/>
         </ul>
         <ul class="widjet-temp flex-row-custom">
            <WeatherTempCard  v-for="el in currentDayWeather" :key="el" :temp="el.temp" />
@@ -171,11 +171,11 @@
 <script>
 import { converterKelvin } from "@/utils/converter.js";
 import { converterUnix } from "@/utils/converter.js";
-import WeatherTimeCard from '@/components/WeatherTimeCard.vue';
-import WeatherIconCard from '@/components/WeatherIconCard.vue';
-import WeatherTempCard from '@/components/WeatherTempCard.vue';
-import WeatherWindyCard from '@/components/WeatherWindyCard.vue';
-import WeatherRainCard from '@/components/WeatherRainCard.vue';
+import WeatherTimeCard from '@/components/WeatherCards/WeatherTimeCard.vue';
+import WeatherIconCard from '@/components/WeatherCards/WeatherIconCard.vue';
+import WeatherTempCard from '@/components/WeatherCards/WeatherTempCard.vue';
+import WeatherWindyCard from '@/components/WeatherCards/WeatherWindyCard.vue';
+import WeatherRainCard from '@/components/WeatherCards/WeatherRainCard.vue';
 
 export default {
   props: ["city"],
@@ -247,7 +247,6 @@ export default {
       };
       this.currentWeather = weatherData.current;
       this.currentDayWeather = weatherData.hourly.filter(el => validTimesWeather[converterUnix(el.dt , 'getHours')]).splice(validTimesWeather.maxNumber).sort((a , b) => converterUnix(a.dt , 'getHours') - converterUnix(b.dt , 'getHours')) 
-      console.log(weatherData);
       },
     converterKelvin,
     converterUnix,

@@ -1,15 +1,16 @@
 <template>
+  <main class="main-container p-4">
     <section class="main-header">
-      <UiFormSearchCity />
+      <WeatherFormSearchCity />
     </section>
     <section class="main-body">
       <div class="weather-box">
-        <ul class="weather-list" v-if="hasCities">
+        <ul class="weather-list" v-if="hasWeather">
           <WeatherCard
-            v-for="(city, idx) in citiesWeatherGroup"
-            :key="city"
-            :weatherCity="city"
-            :cityNumber="idx"
+            v-for="(weather, idx) in currentWeather"
+            :key="weather"
+            :cardValue="weather"
+            :index="idx"
           />
         </ul>
 
@@ -18,24 +19,26 @@
         </p>
       </div>
     </section>
+  </main>
 </template>
 
 <script>
-import UiFormSearchCity from "@/components/UiFormSearchCity";
-import WeatherCard from "@/components/WeatherCard.vue";
+import WeatherFormSearchCity from "@/components/WeatherFormSearchCity";
+import WeatherCard from "@/components/WeatherCards/WeatherCard.vue";
+
 export default {
   data() {
     return {};
   },
   computed: {
-    citiesWeatherGroup() {
-      return this.$store.getters["location/getCitiesGroup"];
+    currentWeather() {
+      return this.$store.getters["weather/getCurrentWeather"];
     },
-    hasCities() {
-      return this.citiesWeatherGroup.length > 0;
+    hasWeather() {
+      return this.currentWeather.length > 0;
     },
   },
-  components: { UiFormSearchCity, WeatherCard },
+  components: { WeatherFormSearchCity, WeatherCard },
 };
 </script>
 
