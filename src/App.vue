@@ -1,15 +1,16 @@
 <template>
-  <router-view></router-view>
+  <router-view />
 </template>
 
 <script>
 export default {
   mounted() {
-    const cities = this.$store.getters["location/getCitiesGroup"];
-    for (let city of cities) {
-      this.$store.dispatch("weather/getWeather", {
+    const cities = this.$store.getters['location/getCitiesGroup'];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const city of cities) {
+      this.$store.dispatch('weather/getWeather', {
         location: city,
-        mode: "add",
+        mode: 'add',
       });
     }
   },

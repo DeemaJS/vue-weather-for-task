@@ -5,16 +5,22 @@
     </section>
     <section class="main-body">
       <div class="weather-box">
-        <ul class="weather-list" v-if="hasWeather">
+        <ul
+          v-if="hasWeather"
+          class="weather-list"
+        >
           <WeatherCard
             v-for="(weather, idx) in currentWeather"
             :key="weather"
-            :cardValue="weather"
+            :card-value="weather"
             :index="idx"
           />
         </ul>
 
-        <p class="weather-group-message" v-else>
+        <p
+          v-else
+          class="weather-group-message"
+        >
           Добавьте свой первый отслеживаемый город
         </p>
       </div>
@@ -23,22 +29,22 @@
 </template>
 
 <script>
-import WeatherFormSearchCity from "@/components/WeatherFormSearchCity";
-import WeatherCard from "@/components/WeatherCards/WeatherCard.vue";
+import WeatherFormSearchCity from '@/components/WeatherFormSearchCity';
+import WeatherCard from '@/components/WeatherCards/WeatherCard';
 
 export default {
+  components: { WeatherFormSearchCity, WeatherCard },
   data() {
     return {};
   },
   computed: {
     currentWeather() {
-      return this.$store.getters["weather/getCurrentWeather"];
+      return this.$store.getters['weather/getCurrentWeather'];
     },
     hasWeather() {
       return this.currentWeather.length > 0;
     },
   },
-  components: { WeatherFormSearchCity, WeatherCard },
 };
 </script>
 

@@ -1,14 +1,17 @@
 <template>
-  <li class="widjet-time-item"> {{ converterUnix(time , 'getHours') }}:00</li>
+  <li class="widjet-time-item">
+    {{ converterUnix(time , 'getHours') }}:00
+  </li>
 </template>
 
 <script>
-import { converterUnix } from "@/utils/converter.js";
+import { converterUnix } from '@/utils/converter';
+
 export default {
-    props: ['time'],
-    methods: {
-        converterUnix
-    }
+  props: ['time'],
+  methods: {
+    converterUnix,
+  },
 };
 </script>
 

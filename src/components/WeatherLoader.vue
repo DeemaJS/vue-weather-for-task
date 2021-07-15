@@ -1,6 +1,8 @@
 <template>
   <div class="loader-box">
-    <div class="loader">Loading...</div>
+    <div class="loader">
+      Loading...
+    </div>
   </div>
 </template>
 

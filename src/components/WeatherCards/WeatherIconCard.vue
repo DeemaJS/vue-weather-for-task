@@ -1,12 +1,15 @@
 <template>
   <li class="widjet-weather-icon-item">
-    <img :src="`http://openweathermap.org/img/wn/${icon}.png`" :alt="`weather icon ${icon}`" />
+    <img
+      :src="`http://openweathermap.org/img/wn/${icon}.png`"
+      :alt="`weather icon ${icon}`"
+    >
   </li>
 </template>
 
 <script>
 export default {
-    props: ['icon']
+  props: ['icon'],
 };
 </script>
 
